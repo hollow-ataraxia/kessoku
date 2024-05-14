@@ -1,7 +1,7 @@
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build:
@@ -10,4 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
-      - run: nix develop -c pnpm build
+
+      - name: pnpm install
+        run: nix develop -c pnpm install
+
+      - name: pnpm build
+        run: nix develop -c pnpm build
