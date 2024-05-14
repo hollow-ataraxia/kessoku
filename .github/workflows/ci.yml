@@ -11,6 +11,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
 
+      - name: Run biome
+        run: nix develop -c biome ci .
+
       - name: pnpm install
         run: nix develop -c pnpm install
 
