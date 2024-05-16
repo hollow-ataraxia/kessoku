@@ -9,9 +9,7 @@ const CoverArt: FunctionComponent<CoverArtProps> = ({id}) => {
 	const {data} = useGetCoversByIdQuery(id)
 
 	return (
-		<figure key={data?.[0].id}>
-			<img src={data?.[0].image} alt="" width={300} />
-		</figure>
+		<img src={data?.[0].thumbnails.small} alt="" width={200} height={200} />
 	)
 }
 
