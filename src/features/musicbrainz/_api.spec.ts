@@ -2,8 +2,8 @@ import {musicbrainzApi} from '@features/musicbrainz/musicbrainz.api.ts'
 import {configureStore} from '@reduxjs/toolkit'
 import {Effect} from 'effect'
 import {beforeEach, describe, expect, test} from 'vitest'
-import {queryBuilder} from './effects/queries'
 import type {ArtistFields} from './artist/artist.fields'
+import {queryBuilder} from './effects/queries'
 
 const makeStore = () =>
 	configureStore({
