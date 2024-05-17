@@ -32,4 +32,4 @@ type Field =
 	| 'tracksmedium'
 	| 'type'
 
-export type ReleaseFields = Record<Field, string>
+export type ReleaseFields = Partial<Record<Field, string>>
