@@ -21,7 +21,7 @@ const Thumbnails: FunctionComponent<{id: string}> = ({id}) => {
 const Release: FunctionComponent<ReleaseFields> = props => {
 	const {data, isError} = useReleaseQuery(props)
 	if (isError) return <div>err</div>
-	if (data) return <Thumbnails id={data.id} />
+	if (data) return <Thumbnails id={data[data.length - 1].id} />
 }
 
 export default Release

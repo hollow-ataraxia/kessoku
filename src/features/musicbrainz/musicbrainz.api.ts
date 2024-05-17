@@ -16,11 +16,11 @@ export const musicbrainzApi = createApi({
 		}
 	}),
 	endpoints: builder => ({
-		release: builder.query<Release, Partial<ReleaseFields>>({
+		release: builder.query<Release[], Partial<ReleaseFields>>({
 			query: arg => `/release/?query=${Effect.runSync(queryBuilder(arg))}`,
 
 			transformResponse: (response: {releases: Release[]}) =>
-				decodeSync(Release)(response.releases[0])
+				response.releases.map(release => decodeSync(Release)(release))
 		})
 	})
 })
