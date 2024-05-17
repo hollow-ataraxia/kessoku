@@ -1,7 +1,9 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import {Effect} from 'effect'
 import {queryBuilder} from './effects/queries'
-import type {Release} from './release/release.struct'
+import {Release} from './release/release.struct'
+import {decodeSync} from '@effect/schema/Schema'
+import type {ReleaseFields} from './release/release.fields'
 
 export const musicbrainzApi = createApi({
 	reducerPath: '@musicbrainz/rest',
@@ -14,11 +16,11 @@ export const musicbrainzApi = createApi({
 		}
 	}),
 	endpoints: builder => ({
-		release: builder.query<Release, Partial<Release>>({
+		release: builder.query<Release, Partial<ReleaseFields>>({
 			query: arg => `/release/?query=${Effect.runSync(queryBuilder(arg))}`,
 
 			transformResponse: (response: {releases: Release[]}) =>
-				response.releases[0]
+				decodeSync(Release)(response.releases[0])
 		})
 	})
 })

@@ -4,8 +4,8 @@ import type {FunctionComponent} from 'react'
 
 const App: FunctionComponent = () => {
 	const ビビデバ = useReleaseQuery({
-		title: 'ビビデバ',
-		artist: '星街すいせい'
+		release: 'ビビデバ',
+		artistname: '星街すいせい'
 	})
 
 	return (
