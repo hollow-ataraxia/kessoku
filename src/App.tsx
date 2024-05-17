@@ -1,9 +1,9 @@
 import CoverArt from '@components/CoverArt'
-import {useGetReleaseByArtistAndTitleQuery} from '@features/musicbrainz/release/release.api.ts'
+import {useReleaseQuery} from '@features/musicbrainz/musicbrainz.api.ts'
 import type {FunctionComponent} from 'react'
 
 const App: FunctionComponent = () => {
-	const ビビデバ = useGetReleaseByArtistAndTitleQuery({
+	const ビビデバ = useReleaseQuery({
 		title: 'ビビデバ',
 		artist: '星街すいせい'
 	})

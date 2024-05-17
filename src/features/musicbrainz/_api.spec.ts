@@ -1,6 +1,8 @@
 import {musicbrainzApi} from '@features/musicbrainz/artist/artiest.api.ts'
 import {configureStore} from '@reduxjs/toolkit'
+import {Effect} from 'effect'
 import {beforeEach, describe, expect, test} from 'vitest'
+import {queryBuilder} from './effects/queries'
 
 const makeStore = () =>
 	configureStore({
@@ -25,5 +27,17 @@ describe('@musicbrainz/api', () => {
 		const {data} = getArtistsByAlias.select(query)(getState())
 
 		expect(data?.[0].country).equal('JP')
+	})
+})
+
+describe('effect', () => {
+	test('builQuery', async () => {
+		const program = queryBuilder({
+			title: 'ビビデバ',
+			artist: '星街すいせい',
+			country: 'XW'
+		})
+
+		await Effect.runPromise(program).then(console.log)
 	})
 })

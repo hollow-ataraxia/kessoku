@@ -1,19 +1,16 @@
 import {coverArtApi} from '@features/cover-art/image.api.ts'
-import {musicbrainzApi} from '@features/musicbrainz/artist/artiest.api.ts'
-import {releaseApi} from '@features/musicbrainz/release/release.api.ts'
 import {configureStore} from '@reduxjs/toolkit'
 import {setupListeners} from '@reduxjs/toolkit/query'
+import {musicbrainzApi} from '@features/musicbrainz/musicbrainz.api.ts'
 
 export const store = configureStore({
 	reducer: {
 		[musicbrainzApi.reducerPath]: musicbrainzApi.reducer,
-		[coverArtApi.reducerPath]: coverArtApi.reducer,
-		[releaseApi.reducerPath]: releaseApi.reducer
+		[coverArtApi.reducerPath]: coverArtApi.reducer
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware()
 			.concat(musicbrainzApi.middleware)
-			.concat(releaseApi.middleware)
 			.concat(coverArtApi.middleware)
 })
 
