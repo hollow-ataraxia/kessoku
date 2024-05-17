@@ -1,0 +1,22 @@
+type Field =
+	| 'alias'
+	| 'primary_alias'
+	| 'area'
+	| 'arid'
+	| 'artist'
+	| 'artistaccent'
+	| 'begin'
+	| 'beginarea'
+	| 'comment'
+	| 'country'
+	| 'end'
+	| 'endarea'
+	| 'ended'
+	| 'gender'
+	| 'ipi'
+	| 'isni'
+	| 'sortname'
+	| 'tag'
+	| 'type'
+
+export type ArtistFields = Partial<Record<Field, string>>

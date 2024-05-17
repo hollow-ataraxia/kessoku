@@ -4,6 +4,8 @@ import {queryBuilder} from './effects/queries'
 import {Release} from './release/release.struct'
 import {decodeSync} from '@effect/schema/Schema'
 import type {ReleaseFields} from './release/release.fields'
+import {Artist} from './artist/artist.struct'
+import type {ArtistFields} from './artist/artist.fields'
 
 export const musicbrainzApi = createApi({
 	reducerPath: '@musicbrainz/rest',
@@ -21,6 +23,13 @@ export const musicbrainzApi = createApi({
 
 			transformResponse: (response: {releases: Release[]}) =>
 				response.releases.map(release => decodeSync(Release)(release))
+		}),
+
+		artist: builder.query<Artist[], ArtistFields>({
+			query: arg => `/artist/?query=${Effect.runSync(queryBuilder(arg))}`,
+
+			transformResponse: (response: {artists: Artist[]}) =>
+				response.artists.map(res => decodeSync(Artist)(res))
 		})
 	})
 })
