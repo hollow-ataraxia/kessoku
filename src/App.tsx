@@ -1,24 +1,18 @@
-import Cover from '@components/Cover.tsx'
-import type {ReleaseFields} from '@features/musicbrainz/release/release.fields'
+import {CoverThumbnail} from '@features/cover-art/'
+import {Search} from '@features/musicbrainz'
 import {type FunctionComponent, useState} from 'react'
 
 const App: FunctionComponent = () => {
-	const [releases] = useState<ReleaseFields[]>([
-		{
-			release: 'ビビデバ',
-			artistname: '星街すいせい'
-		},
-		{
-			release: 'GHOST',
-			artistname: '星街すいせい'
-		}
-	])
+	const [releaseId] = useState<Set<string>>(new Set())
 
 	return (
 		<div>
-			{releases.map(release => (
-				<Cover key={release.release} {...release} />
-			))}
+			<section style={{display: 'flex', flexWrap: 'wrap'}}>
+				{Array.from(releaseId).map(release => (
+					<CoverThumbnail key={release} id={release} />
+				))}
+			</section>
+			<Search />
 		</div>
 	)
 }
