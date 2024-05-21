@@ -1,6 +1,6 @@
 import {fetchBaseQuery} from '@reduxjs/toolkit/query'
 import {createApi} from '@reduxjs/toolkit/query/react'
-import type {Image} from './image.struct.ts'
+import type {Image} from '../../effects/schemes/archive-release.scheme.ts'
 
 export const coverArtApi = createApi({
 	reducerPath: '@cover-art/image',

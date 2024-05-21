@@ -1,0 +1,10 @@
+.figure {
+  display: inline-block;
+}
+
+.image {
+  max-width: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}

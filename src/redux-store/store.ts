@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit'
 import {setupListeners} from '@reduxjs/toolkit/query'
-import {coverArtApi} from '#features/cover-art/image.api.ts'
+import {coverArtApi} from '#features/cover-art'
 import {musicbrainzApi} from '#features/musicbrainz/redux/api/musicbrainz.ts'
 
 export const store = configureStore({
