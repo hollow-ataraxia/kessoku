@@ -25,9 +25,6 @@ dependencies:
     version: 9.1.2(@types/react@18.3.1)(react@18.3.1)(redux@5.0.1)
 
 devDependencies:
-  '@chromatic-com/storybook':
-    specifier: ^1.4.0
-    version: 1.4.0(react@18.3.1)
   '@storybook/addon-essentials':
     specifier: ^8.1.1
     version: 8.1.1(@types/react-dom@18.3.0)(@types/react@18.3.1)(prettier@3.2.5)(react-dom@18.3.1)(react@18.3.1)
@@ -1374,21 +1371,6 @@ packages:
 
   /@base2/pretty-print-object@1.0.1:
     resolution: {integrity: sha512-4iri8i1AqYHJE2DstZYkyEprg6Pq6sKx3xn5FpySk9sNhH7qN2LLlHJCfDTZRILNwQNPD7mATWM0TBui7uC1pA==}
-    dev: true
-
-  /@chromatic-com/storybook@1.4.0(react@18.3.1):
-    resolution: {integrity: sha512-CpskwN1RsgaDMSe7mnwrmst9XeLfvrSbCJOc/eaHIDzhSiKhdbbEF83cYjMYnvODPMW8QNVdw9gWMh+yzBQtSw==}
-    engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
-    dependencies:
-      chromatic: 11.3.5
-      filesize: 10.1.2
-      jsonfile: 6.1.0
-      react-confetti: 6.1.0(react@18.3.1)
-      strip-ansi: 7.1.0
-    transitivePeerDependencies:
-      - '@chromatic-com/cypress'
-      - '@chromatic-com/playwright'
-      - react
     dev: true
 
   /@colors/colors@1.5.0:
@@ -3922,19 +3904,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /chromatic@11.3.5:
-    resolution: {integrity: sha512-M3xCyoEIjdcsXX3NhN60joXxEthy+wxNEcsCMM0u9u8Yna7tJvwvOsJStbOJDwEBo6TdIKckARN3BbArpduFbA==}
-    hasBin: true
-    peerDependencies:
-      '@chromatic-com/cypress': ^0.*.* || ^1.0.0
-      '@chromatic-com/playwright': ^0.*.* || ^1.0.0
-    peerDependenciesMeta:
-      '@chromatic-com/cypress':
-        optional: true
-      '@chromatic-com/playwright':
-        optional: true
-    dev: true
-
   /citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
     dependencies:
@@ -4640,11 +4609,6 @@ packages:
     resolution: {integrity: sha512-w1cEuf3S+DrLCQL7ET6kz+gmlJdbq9J7yXCSjK/OZCPA+qEN1WyF4ZAf0YYJa4/shHJra2t/d/r8SV4Ji+x+8Q==}
     dependencies:
       minimatch: 5.1.6
-    dev: true
-
-  /filesize@10.1.2:
-    resolution: {integrity: sha512-Dx770ai81ohflojxhU+oG+Z2QGvKdYxgEr9OSA8UVrqhwNHjfH9A8f5NKfg83fEH8ZFA5N5llJo5T3PIoZ4CRA==}
-    engines: {node: '>= 10.4.0'}
     dev: true
 
   /fill-range@7.0.1:
@@ -6383,16 +6347,6 @@ packages:
       react-dom: 18.3.1(react@18.3.1)
     dev: true
 
-  /react-confetti@6.1.0(react@18.3.1):
-    resolution: {integrity: sha512-7Ypx4vz0+g8ECVxr88W9zhcQpbeujJAVqL14ZnXJ3I23mOI9/oBVTQ3dkJhUmB0D6XOtCZEM6N0Gm9PMngkORw==}
-    engines: {node: '>=10.18'}
-    peerDependencies:
-      react: ^16.3.0 || ^17.0.1 || ^18.0.0
-    dependencies:
-      react: 18.3.1
-      tween-functions: 1.2.0
-    dev: true
-
   /react-docgen-typescript@2.2.2(typescript@5.4.5):
     resolution: {integrity: sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==}
     peerDependencies:
@@ -7291,10 +7245,6 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
-    dev: true
-
-  /tween-functions@1.2.0:
-    resolution: {integrity: sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA==}
     dev: true
 
   /type-detect@4.0.8:
