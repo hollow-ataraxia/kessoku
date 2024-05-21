@@ -1,6 +1,6 @@
-import {CoverThumbnail} from '@features/cover-art/'
-import {Search} from '@features/musicbrainz'
 import {type FunctionComponent, useState} from 'react'
+import {CoverThumbnail} from '#features/cover-art/'
+import {Search} from '#features/musicbrainz'
 
 const App: FunctionComponent = () => {
 	const [releaseId] = useState<Set<string>>(new Set())

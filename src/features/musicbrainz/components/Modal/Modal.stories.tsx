@@ -1,8 +1,8 @@
-import {coverArtApi} from '@features/cover-art/image.api.ts'
-import {CoverThumbnail} from '@features/cover-art/index.ts'
 import {configureStore} from '@reduxjs/toolkit'
 import type {Meta, StoryObj} from '@storybook/react'
 import {Provider} from 'react-redux'
+import {coverArtApi} from '#features/cover-art/image.api.ts'
+import {CoverThumbnail} from '#features/cover-art/index.ts'
 import {Modal} from './Modal.tsx'
 
 type Story = StoryObj<typeof Modal>

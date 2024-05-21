@@ -1,5 +1,5 @@
-import {useGetCoversByIdQuery} from '@features/cover-art/image.api'
 import type {FunctionComponent} from 'react'
+import {useGetCoversByIdQuery} from '#features/cover-art/image.api'
 
 const CoverThumbnail: FunctionComponent<{id: string}> = ({id}) => {
 	const coverArt = useGetCoversByIdQuery(id)

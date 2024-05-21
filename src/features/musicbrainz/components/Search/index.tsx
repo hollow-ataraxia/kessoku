@@ -1,6 +1,6 @@
-import {useReleaseQuery} from '@features/musicbrainz/musicbrainz.api'
 import {Effect} from 'effect'
 import {type FunctionComponent, useMemo, useState} from 'react'
+import {useReleaseQuery} from '#features/musicbrainz/redux/api/musicbrainz.ts'
 
 const getMatched = (text: string) =>
 	Effect.gen(function* (_) {

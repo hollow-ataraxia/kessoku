@@ -19,11 +19,10 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"exactOptionalPropertyTypes": true,
-
 		"paths": {
-			"@components/*": ["./src/components/*"],
-			"@features/*": ["./src/features/*"],
-			"@styles/*": ["./src/styles/*"]
+			"#components/*": ["./src/components/*"],
+			"#features/*": ["./src/features/*"],
+			"#styles/*": ["./src/styles/*"]
 		}
 	}
 }

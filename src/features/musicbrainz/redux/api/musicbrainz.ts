@@ -1,11 +1,11 @@
 import {decodeSync} from '@effect/schema/Schema'
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import {Effect} from 'effect'
-import type {ArtistFields} from './artist/artist.fields.ts'
-import {Artist} from './artist/artist.struct.ts'
-import {queryBuilder} from './effects/queries.ts'
-import type {ReleaseFields} from './release/release.fields.ts'
-import {Release} from './release/release.struct.ts'
+import {queryBuilder} from '#features/musicbrainz/effects/queries.ts'
+import {Artist} from '#features/musicbrainz/effects/schemes/artist.scheme.ts'
+import {Release} from '#features/musicbrainz/effects/schemes/release.scheme.ts'
+import type {ArtistFields} from '../../types/artist.fields.ts'
+import type {ReleaseFields} from '../../types/release.fields.ts'
 
 export const musicbrainzApi = createApi({
 	reducerPath: '@musicbrainz/rest',
