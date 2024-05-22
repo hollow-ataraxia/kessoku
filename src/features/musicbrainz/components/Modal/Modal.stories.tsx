@@ -1,41 +1,38 @@
-import {configureStore} from '@reduxjs/toolkit'
+import {useArgs} from '@storybook/preview-api'
 import type {Meta, StoryObj} from '@storybook/react'
-import {Provider} from 'react-redux'
-import {coverArtApi, CoverThumbnail} from '#features/cover-art'
 import {Modal} from './Modal.tsx'
 
 type Story = StoryObj<typeof Modal>
 
-const store = configureStore({
-	reducer: {
-		[coverArtApi.reducerPath]: coverArtApi.reducer
-	},
-	middleware: getDefaultMiddleware =>
-		getDefaultMiddleware().concat(coverArtApi.middleware)
-})
-
 const meta: Meta<typeof Modal> = {
-	component: Modal
-}
-
-export const _default: Story = {
-	decorators: [Story => <Provider store={store}>{<Story />}</Provider>],
+	title: 'musicbrainz/Modal',
+	component: Modal,
 	args: {
+		isOpen: true,
 		children: (
 			<div>
-				<pre>
-					<h3>
-						Hoshimachi Suisei!" "It's your shooting star, your diamond in the
-						rough, idol VTuber
-					</h3>
-				</pre>
-
-				<CoverThumbnail id="8785ae5d-d591-4b85-86dc-e1f0594ff2e3" />
-				<CoverThumbnail id="1b2cfca5-6f22-416b-87b3-73ab70a796af" />
-				<CoverThumbnail id="4cb9755f-d871-40d9-9304-72d5f6530ced" />
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis
+				reprehenderit suscipit esse aliquam sapiente officiis repellat in
+				delectus, ab voluptates! In asperiores error rem neque. Molestias ab
+				autem eius incidunt! Lorem ipsum dolor sit amet consectetur adipisicing
+				elit. Sed voluptates odit, asperiores recusandae earum similique
+				sapiente vero quasi id. Pariatur voluptas explicabo necessitatibus
+				consectetur sapiente provident exercitationem, deserunt ratione animi!
 			</div>
 		)
 	}
 }
 
 export default meta
+
+export const _default: Story = {
+	render: args => {
+		const [{isOpen}, updateArgs] = useArgs<typeof args>()
+
+		return (
+			<Modal isOpen={!!isOpen} close={() => updateArgs({isOpen: false})}>
+				{args.children}
+			</Modal>
+		)
+	}
+}
