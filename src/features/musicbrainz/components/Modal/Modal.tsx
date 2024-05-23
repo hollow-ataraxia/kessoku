@@ -1,10 +1,10 @@
-import {type FunctionComponent, type JSX, useEffect, useRef} from 'react'
+import {type FunctionComponent, type ReactNode, useEffect, useRef} from 'react'
 import styles from './Modal.module.css'
 
 type ModalProps = {
 	isOpen?: boolean
 	close: () => void
-	children: JSX.Element
+	children: ReactNode
 }
 
 export const Modal: FunctionComponent<ModalProps> = ({

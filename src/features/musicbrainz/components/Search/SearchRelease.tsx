@@ -1,5 +1,6 @@
 import {Effect} from 'effect'
-import {type FunctionComponent, useMemo, useState} from 'react'
+import {type FunctionComponent, useEffect, useMemo, useState} from 'react'
+import type {Release} from '#features/musicbrainz/effects/schemes/release.scheme'
 import {useReleaseQuery} from '#features/musicbrainz/redux/api/musicbrainz.ts'
 
 const getMatched = (text: string) =>
@@ -17,14 +18,26 @@ const getMatched = (text: string) =>
 				}
 	})
 
-const Search: FunctionComponent = () => {
+type SearchProps = {
+	addRelease: (id: string) => void
+	setReleases: (r: Release[]) => void
+}
+
+export const Search: FunctionComponent<SearchProps> = ({
+	addRelease,
+	setReleases
+}) => {
 	const [query, setQuery] = useState('星街すいせい レクイエム')
 	const fieldsTask = useMemo(() => getMatched, [])
-	const getFields = useMemo(
+	const fields = useMemo(
 		() => Effect.runSync(fieldsTask(query)),
 		[fieldsTask, query]
 	)
-	const {data} = useReleaseQuery(getFields)
+	const release = useReleaseQuery(fields)
+
+	useEffect(() => {
+		release.data && setReleases(release.data)
+	}, [release, setReleases])
 
 	return (
 		<div>
@@ -33,11 +46,11 @@ const Search: FunctionComponent = () => {
 				value={query}
 				onChange={e => setQuery(e.target.value)}
 			/>
-			{data?.map(r => (
-				<span key={r.id}>{r.id}</span>
-			))}
+			<input
+				type="button"
+				value="add"
+				onClick={() => release.data?.[0] && addRelease(release.data[0].id)}
+			/>
 		</div>
 	)
 }
-
-export default Search

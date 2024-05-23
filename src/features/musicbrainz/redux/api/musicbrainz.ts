@@ -5,7 +5,7 @@ import {queryBuilder} from '#features/musicbrainz/effects/queries.ts'
 import {Artist} from '#features/musicbrainz/effects/schemes/artist.scheme.ts'
 import {Release} from '#features/musicbrainz/effects/schemes/release.scheme.ts'
 import type {ArtistFields} from '../../types/artist.fields.ts'
-import type {ReleaseFields} from '../../types/release.fields.ts'
+import type {ReleaseSearchFields} from '../../types/release.fields.ts'
 
 export const musicbrainzApi = createApi({
 	reducerPath: '@musicbrainz/rest',
@@ -18,7 +18,7 @@ export const musicbrainzApi = createApi({
 		}
 	}),
 	endpoints: builder => ({
-		release: builder.query<Release[], Partial<ReleaseFields>>({
+		release: builder.query<Release[], Partial<ReleaseSearchFields>>({
 			query: arg => `/release/?query=${Effect.runSync(queryBuilder(arg))}`,
 
 			transformResponse: (response: {releases: Release[]}) =>

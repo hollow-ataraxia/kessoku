@@ -2,17 +2,36 @@ import type {FunctionComponent} from 'react'
 import {useGetCoversByIdQuery} from '../../redux/api/coverartarchive.ts'
 import styles from './Thumbanil.module.css'
 
-export const CoverThumbnail: FunctionComponent<{id: string}> = ({id}) => {
+type ThumbanilProps = {
+	id: string
+	index: number
+	action?: () => void
+}
+
+export const CoverThumbnail: FunctionComponent<ThumbanilProps> = ({
+	id,
+	index,
+	action
+}) => {
 	const coverArt = useGetCoversByIdQuery(id)
 
-	if (!coverArt.data) return null
 	return (
-		<figure className={styles.figure}>
-			<img
-				className={styles.image}
-				src={coverArt.data[0].thumbnails.small}
-				alt=""
-			/>
-		</figure>
+		coverArt.data?.[index] && (
+			<button
+				type="button"
+				className={styles.btn}
+				onClick={() => action?.()}
+				onKeyDown={e => e.key === 'ENTER' && action?.()}
+			>
+				<img
+					className={styles.image}
+					srcSet={`${coverArt.data[0].thumbnails.small} 400w, ${coverArt.data[0].thumbnails.large} 600w`}
+					src={coverArt.data[index].thumbnails.small}
+					alt={id}
+					decoding="async"
+					loading="lazy"
+				/>
+			</button>
+		)
 	)
 }
