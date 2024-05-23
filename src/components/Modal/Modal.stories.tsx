@@ -1,6 +1,6 @@
 import {useArgs} from '@storybook/preview-api'
 import type {Meta, StoryObj} from '@storybook/react'
-import {Modal} from './Modal.tsx'
+import Modal from './Modal.tsx'
 
 type Story = StoryObj<typeof Modal>
 

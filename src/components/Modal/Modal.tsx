@@ -7,11 +7,7 @@ type ModalProps = {
 	children: ReactNode
 }
 
-export const Modal: FunctionComponent<ModalProps> = ({
-	isOpen,
-	children,
-	close
-}) => {
+const Modal: FunctionComponent<ModalProps> = ({isOpen, close, children}) => {
 	const dialogElementRef = useRef<HTMLDialogElement>(null)
 
 	useEffect(() => {
@@ -31,3 +27,5 @@ export const Modal: FunctionComponent<ModalProps> = ({
 		</dialog>
 	)
 }
+
+export default Modal

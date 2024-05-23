@@ -1,7 +1,7 @@
 import {type FunctionComponent, useState} from 'react'
+import Modal from '#components/Modal/Modal'
 import {CoverThumbnail} from '#features/cover-art'
 import {Search} from '#features/musicbrainz'
-import {Modal} from '#features/musicbrainz/components/Modal/Modal'
 import type {Release} from '#features/musicbrainz/effects/schemes/release.scheme'
 
 const App: FunctionComponent = () => {
