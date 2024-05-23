@@ -6,7 +6,7 @@ import type {Release} from '#features/musicbrainz/effects/schemes/release.scheme
 
 const App: FunctionComponent = () => {
 	const [releasesIds, setReleasesIds] = useState<Set<string>>(new Set())
-	const [releases, setReleases] = useState<Release[]>([])
+	const [search, setSearch] = useState<Release[]>()
 	const [modal, setModal] = useState(true)
 
 	const addReleaseId = (id: string) =>
@@ -29,7 +29,7 @@ const App: FunctionComponent = () => {
 			</section>
 
 			<Modal isOpen={modal} close={() => setModal(false)}>
-				<Search addRelease={addReleaseId} setReleases={setReleases} />
+				<Search setResult={setSearch} />
 				<div
 					style={{
 						display: 'grid',
@@ -40,7 +40,7 @@ const App: FunctionComponent = () => {
 						padding: '1em'
 					}}
 				>
-					{releases.map(release => (
+					{search?.map(release => (
 						<CoverThumbnail
 							key={release.id}
 							id={release.id}
