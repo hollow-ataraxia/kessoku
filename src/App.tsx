@@ -3,6 +3,7 @@ import Modal from '#components/Modal/Modal'
 import {CoverThumbnail} from '#features/cover-art'
 import {Search} from '#features/musicbrainz'
 import type {Release} from '#features/musicbrainz/effects/schemes/release.scheme'
+import NavSections from '#components/NavSections/NavSections'
 
 const App: FunctionComponent = () => {
 	const [releasesIds, setReleasesIds] = useState<Set<string>>(new Set())
@@ -14,15 +15,7 @@ const App: FunctionComponent = () => {
 
 	return (
 		<div>
-			<section
-				style={{
-					display: 'grid',
-					gridAutoFlow: 'column',
-					gridAutoColumns: '250px',
-					gridTemplateRows: '250px',
-					gap: '1em'
-				}}
-			>
+			<section>
 				{Array.from(releasesIds).flatMap(id => (
 					<CoverThumbnail key={id} id={id} index={0} />
 				))}
@@ -30,16 +23,7 @@ const App: FunctionComponent = () => {
 
 			<Modal isOpen={modal} close={() => setModal(false)}>
 				<Search setResult={setSearch} />
-				<div
-					style={{
-						display: 'grid',
-						gridAutoFlow: 'column',
-						gridAutoColumns: '250px',
-						gridTemplateRows: '250px',
-						overflowY: 'auto',
-						padding: '1em'
-					}}
-				>
+				<NavSections>
 					{search?.map(release => (
 						<CoverThumbnail
 							key={release.id}
@@ -48,7 +32,7 @@ const App: FunctionComponent = () => {
 							action={() => addReleaseId(release.id)}
 						/>
 					))}
-				</div>
+				</NavSections>
 			</Modal>
 
 			<button type="button" onClick={() => setModal(true)}>

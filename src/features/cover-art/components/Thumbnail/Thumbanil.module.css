@@ -1,12 +1,11 @@
 .btn {
+  display: inline-block;
   appearance: none;
   border-radius: 0;
-  text-align: inherit;
   background: none;
   box-shadow: none;
   border: none;
   color: inherit;
-  font: inherit;
 
   &:focus {
     outline: solid 1px white;
@@ -15,7 +14,5 @@
 }
 
 .image {
-  max-width: 100%;
-  max-height: 100%;
   object-fit: cover;
 }

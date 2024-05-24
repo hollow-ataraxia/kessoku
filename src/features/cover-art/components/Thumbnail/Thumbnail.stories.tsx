@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from '@storybook/react'
 import {Provider} from 'react-redux'
 import {store} from '#features/cover-art/tests/utils/redux-store.ts'
-import {CoverThumbnail} from './Thumbnail.tsx'
+import CoverThumbnail from './Thumbnail.tsx'
 
 type Story = StoryObj<typeof CoverThumbnail>
 

@@ -1,0 +1,13 @@
+.scrollContainer {
+  display: flex;
+  gap: 1em;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  & > * {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    scroll-margin: 1em;
+  }
+}

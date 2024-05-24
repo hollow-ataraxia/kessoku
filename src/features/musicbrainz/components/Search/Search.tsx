@@ -7,7 +7,7 @@ type SearchProps = {
 }
 
 const Search: FunctionComponent<SearchProps> = ({setResult}) => {
-	const [value, setValue] = useState('')
+	const [value, setValue] = useState('Suisei')
 	const release = useReleaseQuery({
 		release: value.match(/[^\s]+/gu)?.[0] ?? ''
 	})

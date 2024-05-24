@@ -8,7 +8,7 @@ type ThumbanilProps = {
 	action?: () => void
 }
 
-export const CoverThumbnail: FunctionComponent<ThumbanilProps> = ({
+const CoverThumbnail: FunctionComponent<ThumbanilProps> = ({
 	id,
 	index,
 	action
@@ -25,8 +25,10 @@ export const CoverThumbnail: FunctionComponent<ThumbanilProps> = ({
 			>
 				<img
 					className={styles.image}
-					srcSet={`${coverArt.data[0].thumbnails.small} 400w, ${coverArt.data[0].thumbnails.large} 600w`}
+					// srcSet={`${coverArt.data[0].thumbnails.small} 400w, ${coverArt.data[0].thumbnails.large} 600w`}
 					src={coverArt.data[index].thumbnails.small}
+					height={250}
+					width={250}
 					alt={id}
 					decoding="async"
 					loading="lazy"
@@ -35,3 +37,5 @@ export const CoverThumbnail: FunctionComponent<ThumbanilProps> = ({
 		)
 	)
 }
+
+export default CoverThumbnail
